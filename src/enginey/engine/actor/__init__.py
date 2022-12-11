@@ -13,6 +13,14 @@ def make_basic_circle(radius, color, location):
 def make_basic_letter(fontSize, letter, color, location):
     import enginey.engine.actor.entity.letter as shp
     return shp.Letter(fontSize, letter, color, location)
+
+def make_basic_letter(fontSize, letter, color, location):
+    import enginey.engine.actor.entity.letter as shp
+    return shp.Letter(fontSize, letter, color, location)
+
+def make_player():
+    import enginey.engine.actor.entity.player as ply
+    return ply.Player()
  
 ### 
 ### Actions 
@@ -33,3 +41,7 @@ def make_draw_letter_action():
 def make_letter_handler(word):
     import enginey.engine.actor.action.letterHandler as drShp
     return drShp.LetterHandler(word)
+    
+def make_draw_move_action():
+    import enginey.engine.actor.action.move as mv
+    return mv.Move()

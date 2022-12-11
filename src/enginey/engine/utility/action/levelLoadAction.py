@@ -13,15 +13,17 @@ class LevelLoadAction():
             return False
         return True
 
-    def act(self, *args):
+    def act(self, screen):
         if self.condition_to_act():
             #do loading
-            pass
+            return self.makeLevel(screen)
+        import enginey.engine.enviro as ev
         if self.verbose:
             print(self.name + " for " + self.entity_state.name)
         return
 
-    def makeLevel(self):
+    def makeLevel(self, screen):
+        import enginey.engine.enviro as ev
         # Map entity
         # -> 2d array map
         # -> boss isAlive boolean
@@ -31,7 +33,17 @@ class LevelLoadAction():
         # ----> health
         # ----> hud entity
         # ------> health bar
-        pass
+        map = ev.make_map()
+        mapRenderer = ev.make_render_map(screen)
+        map.insert_action(mapRenderer)
 
-    def parseFile(self):
+        
+
+        self.parseFile(map, self.entity_state.level)
+
+
+        
+        return map
+
+    def parseFile(self, map, level):
         pass

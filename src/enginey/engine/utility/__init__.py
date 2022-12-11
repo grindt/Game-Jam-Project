@@ -14,6 +14,10 @@ def make_timer():
     import enginey.engine.utility.entity.timer as tim
     return tim.Timer()
 
+def make_level_loader(level):
+    import enginey.engine.utility.entity.levelLoader as ll
+    return ll.LevelLoader(level)
+
 ### 
 ### Actions 
 ### 
@@ -41,3 +45,7 @@ def make_start():
 def make_update():
     import enginey.engine.utility.action.update as upd
     return upd.Update()
+
+def make_level_loader_Action():
+    import enginey.engine.utility.action.levelLoadAction as ll
+    return ll.LevelLoadAction()

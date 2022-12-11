@@ -1,7 +1,8 @@
 class RenderMap():
-    def __init__(self):
+    def __init__(self, screen):
         self.types = ["draw"]
         self.entity_state = None
+        self.screen = screen
         self.verbose = False
         self.name = "render_map"
         return

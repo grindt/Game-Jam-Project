@@ -15,3 +15,8 @@ class Player():
         self.actions.append(a) 
         return a
 
+    def insert_child(self, c):
+        c.entity_state = self
+        self.children.append(c) 
+        return c
+

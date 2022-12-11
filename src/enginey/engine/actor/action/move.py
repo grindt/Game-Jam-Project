@@ -1,11 +1,11 @@
 import pygame
 
-class move():
+class Move():
     def __init__(self):
         self.types = ["physics"]
         self.entity_state = None
         self.verbose = False
-        self.name = "is_inside_check"
+        self.name = "move"
         return
 
     def condition_to_act(self):

@@ -9,13 +9,12 @@
 # ------> health bar
 
 class Map():
-    def __init__(self, screen, name="HUD"):
+    def __init__(self, name="Map"):
         self.actions = []
         self.name = name
         self.map = []
         self.bossAlive = True
         self.numEnemiesAlive = 99
-        self.screen = screen
         self.template = None
         self.verbose = False
         self.active = True
