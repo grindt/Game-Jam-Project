@@ -1,7 +1,8 @@
 class LevelLoader():
-    def __init__(self, name="Level Loader"):
+    def __init__(self, level=0, name="Level Loader"):
         self.actions = []
         self.name = name
+        self.level = level
         self.template = None
         self.verbose = False
         self.active = True

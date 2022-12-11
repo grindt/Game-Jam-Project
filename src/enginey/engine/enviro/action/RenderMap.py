@@ -1,12 +1,9 @@
-import pygame
-
-class GenerateMessage():
-    def __init__(self, location=(0,0)):
-        self.types = ["display"]
+class RenderMap():
+    def __init__(self):
+        self.types = ["draw"]
         self.entity_state = None
         self.verbose = False
-        self.location = location
-        self.name = "display_message"
+        self.name = "render_map"
         return
 
     def condition_to_act(self):
@@ -24,9 +21,6 @@ class GenerateMessage():
         return
 
     def draw(self, screen):
-        msgToDisplay = str(self.entity_state.health)
-
-        font = pygame.font.SysFont('Comic Sans MS', 20)
-        text_surface = font.render(msgToDisplay, False, (255, 255, 255))
-        screen.blit(text_surface, self.location)
+        #draw map
+        pass
         return
