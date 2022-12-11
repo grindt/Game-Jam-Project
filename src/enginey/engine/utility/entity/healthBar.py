@@ -1,7 +1,8 @@
-class LevelLoader():
-    def __init__(self, name="Level Loader"):
+class HealthBar():
+    def __init__(self, health, name="SuccessCounter"):
         self.actions = []
         self.name = name
+        self.counter = health
         self.template = None
         self.verbose = False
         self.active = True
