@@ -2,9 +2,9 @@
 ###  Entities 
 ### 
 
-def make_hud(screenSize):
+def make_hud(location):
     import enginey.engine.ui.entity.hud as hd
-    return hd.HUD(screenSize)
+    return hd.HUD(location)
 
 def make_basic_button(msg, screen,  bounds, color):
     import enginey.engine.ui.entity.basicButton as bscBtn

@@ -45,6 +45,7 @@ class LevelLoadAction():
         for line in file:
             if len(line) < 2:
                 map.children[1].health = line
+                map.children[1].maxHealth = line
                 break
             map.map.append([])
             for char in line:

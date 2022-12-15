@@ -1,11 +1,11 @@
 class HUD():
-    def __init__(self, screen, name="HUD"):
+    def __init__(self, location=(0,0), name="HUD"):
         self.actions = []
+        self.location = location
         self.name = name
-        self.screen = screen
-        self.template = None
         self.verbose = False
         self.active = True
+        self.entity_state = None
         self.children = []
 
     def insert_action(self, a):

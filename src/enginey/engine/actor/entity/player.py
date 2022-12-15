@@ -3,6 +3,7 @@ class Player():
         self.actions = []
         self.location = location
         self.health = health
+        self.maxHealth = health
         self.name = name
         self.template = None
         self.verbose = False

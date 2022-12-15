@@ -3,33 +3,32 @@ from enginey.engine.actor.entity.circle import Circle
 
 class DrawHUDAction():
     def __init__(self):
-        self.types = ["display"]
+        self.types = ["draw"]
         self.entity_state = None
         self.verbose = False
         self.name = "draw_hud_action"
         return
 
     def condition_to_act(self):
-        if self.entity_state == None:
-            return False
-        if self.entity_state.active == False:
-            return False
-        return True
+        if self.entity_state != None:
+            return True
+        if self.entity_state.active != False:
+            return True
+        return False
 
-    def act(self, args):
+    def act(self, screen, *args):
         if self.condition_to_act():
-            self.handleChildren()
+            self.draw(screen)
             if self.verbose:
                 print(self.name + " for " + self.entity_state.name)
         return
 
-    def handleChildren(self):
-        for entity in self.entity_state.children:
-            if entity.active:
-                for action in entity.actions:
-                    if action.name == "increment":
-                        action.act()
-                        entity.actions.remove(action)
-                    else:
-                        action.act(self.entity_state.screen)
+    def draw(self, screen):
+        msgToDisplay = str(self.entity_state.entity_state.health) + " / " + str(self.entity_state.entity_state.maxHealth)
+
+        pygame.draw.rect(screen, (0,0,0), (self.entity_state.location[0], self.entity_state.location[1], 190, 30) )
+
+        font = pygame.font.SysFont('Comic Sans MS', 20)
+        text_surface = font.render(msgToDisplay, False, (255, 255, 255))
+        screen.blit(text_surface, self.entity_state.location)
         return
