@@ -3,7 +3,7 @@ class LevelLoadAction():
         self.types = None
         self.entity_state = None
         self.verbose = False
-        self.name = "increment"
+        self.name = "load"
         return
 
     def condition_to_act(self):
@@ -13,37 +13,43 @@ class LevelLoadAction():
             return False
         return True
 
-    def act(self, screen):
+    def act(self):
         if self.condition_to_act():
-            #do loading
-            return self.makeLevel(screen)
-        import enginey.engine.enviro as ev
+            self.makeLevel()
         if self.verbose:
             print(self.name + " for " + self.entity_state.name)
         return
 
-    def makeLevel(self, screen):
-        import enginey.engine.enviro as ev
+    def makeLevel(self):
         # Map entity
         # -> 2d array map
         # -> boss isAlive boolean
         # -> enemies alive number
+        # -> level loader
         # -> player entity
         # ----> location
         # ----> health
         # ----> hud entity
         # ------> health bar
-        map = ev.make_map()
-        mapRenderer = ev.make_render_map(screen)
-        map.insert_action(mapRenderer)
 
-        
+        #accessing the map
+        self.entity_state.entity_state.map = []
 
-        self.parseFile(map, self.entity_state.level)
+        self.parseFile(self.entity_state.entity_state, self.entity_state.level)
 
-
-        
-        return map
+        self.entity_state.active = False
 
     def parseFile(self, map, level):
-        pass
+        file = open("./levels/" + str(level),"r")
+        lineNum = 0
+        for line in file:
+            if len(line) < 2:
+                map.children[1].health = line
+                break
+            map.map.append([])
+            for char in line:
+                if char != ' ':
+                    map.map[lineNum].append(char)
+            lineNum += 1
+        file.close()
+        return

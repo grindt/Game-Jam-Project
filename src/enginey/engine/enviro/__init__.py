@@ -10,6 +10,6 @@ def make_map():
 ### Actions 
 ### 
 
-def make_render_map(screen):
+def make_render_map(screenWidth, screenHeight, offset, tileSize):
     import enginey.engine.enviro.action.RenderMap as mpr
-    return mpr.RenderMap(screen)
+    return mpr.RenderMap(screenWidth, screenHeight, offset, tileSize)

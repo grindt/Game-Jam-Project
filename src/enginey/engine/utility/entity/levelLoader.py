@@ -3,7 +3,7 @@ class LevelLoader():
         self.actions = []
         self.name = name
         self.level = level
-        self.template = None
+        self.entity_state = None
         self.verbose = False
         self.active = True
         self.children = []

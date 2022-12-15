@@ -42,6 +42,6 @@ def make_letter_handler(word):
     import enginey.engine.actor.action.letterHandler as drShp
     return drShp.LetterHandler(word)
     
-def make_draw_move_action():
+def make_move_action():
     import enginey.engine.actor.action.move as mv
     return mv.Move()

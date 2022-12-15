@@ -13,9 +13,9 @@ class Increment():
             return False
         return True
 
-    def act(self, *args):
+    def act(self):
         if self.condition_to_act():
-            self.entity_state.counter = self.entity_state.counter + 1
+            self.entity_state.level += 1
         if self.verbose:
             print(self.name + " for " + self.entity_state.name)
         return
