@@ -1,5 +1,4 @@
 import pygame
-from enginey.engine.actor.entity.circle import Circle
 
 class DrawHUDAction():
     def __init__(self):
