@@ -25,3 +25,7 @@ def make_draw_button():
 def make_draw_hud():
     import enginey.engine.ui.action.draw_hud as drwHd
     return drwHd.DrawHUDAction()
+
+def make_draw_credits(location, message):
+    import enginey.engine.ui.action.draw_credits as crd
+    return crd.DrawCredits(location, message)

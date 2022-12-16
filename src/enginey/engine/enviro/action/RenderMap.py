@@ -59,3 +59,6 @@ class RenderMap():
         if char == "v":
             #void
             return (0, 0, 0)
+        if char == "L":
+            #void
+            return (0, 0, 0)

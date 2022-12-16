@@ -33,7 +33,10 @@ class LevelLoadAction():
         self.entity_state.active = False
 
     def parseFile(self, map, level):
-        file = open("./levels/" + str(level),"r")
+        try:
+            file = open("./levels/" + str(level),"r")
+        except:
+            file = open("./levels/end","r")
         rowNum = 0
         for line in file:
             if len(line) < 4:
@@ -52,6 +55,10 @@ class LevelLoadAction():
                         map.numEnemiesAlive += 1
                     if char == 'b':
                         map.bossAlive = True
+                    if char == 'L':
+                        map.children[1].children[0].active = False
+                        map.active = False
+                        map.activitas[1].active = True
                     colNum += 1
             rowNum += 1
         file.close()
