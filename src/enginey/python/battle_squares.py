@@ -6,7 +6,7 @@ import enginey.engine.utility as utl
 import enginey.engine.ui as ui
 import enginey.engine.enviro as ev
 
-STARTING_LEVEL = 3
+STARTING_LEVEL = 1
 
 pygame.init()
 
@@ -20,17 +20,6 @@ viewer.insert_action(display)
 game_content = [ viewer ]
 
 ################## game setup ###########################################
-
-# Map entity
-# -> 2d array map
-# -> boss isAlive boolean
-# -> enemies alive number
-# -> level loader
-# -> player entity
-# ----> location
-# ----> health
-# ----> hud entity
-# ------> health bar
 
 # map setup
 map = ev.make_map()
@@ -72,8 +61,6 @@ map.insert_child(player)
 
 # loads first level into memory
 levelLoaderAction.act()
-
-
 
 # adds map to game_content after it is fully setup
 game_content.append(map)

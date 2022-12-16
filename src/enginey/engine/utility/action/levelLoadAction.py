@@ -22,18 +22,7 @@ class LevelLoadAction():
         return
 
     def makeLevel(self):
-        # Map entity
-        # -> 2d array map
-        # -> boss isAlive boolean
-        # -> enemies alive number
-        # -> level loader
-        # -> player entity
-        # ----> location
-        # ----> health
-        # ----> hud entity
-        # ------> health bar
-
-        # accessing the map
+        # reseting the map
         self.entity_state.entity_state.map = []
 
         self.parseFile(self.entity_state.entity_state, self.entity_state.level)
