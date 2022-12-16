@@ -14,7 +14,6 @@ class LevelLoadAction():
         return True
 
     def act(self):
-        print(self.condition_to_act())
         if self.condition_to_act():
             self.makeLevel()
         if self.verbose:
@@ -50,7 +49,6 @@ class LevelLoadAction():
                     map.map[rowNum].append(char)
                     if char == 'p':
                         map.children[1].location = (rowNum, colNum)
-                        print(map.children[1].location)
                     if char == 'e':
                         map.numEnemiesAlive += 1
                     if char == 'b':

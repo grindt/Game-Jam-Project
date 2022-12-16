@@ -1,8 +1,13 @@
-###
-###  Battle Squares.tm
-###
-
-
+###################################################################################
+#  ____          _    _    _          _____                                       #
+# |  _ \        | |  | |  | |        / ____|                                      #
+# | |_) |  __ _ | |_ | |_ | |  ___  | (___    __ _  _   _   __ _  _ __  ___  ___  #
+# |  _ <  / _` || __|| __|| | / _ \  \___ \  / _` || | | | / _` || '__|/ _ \/ __| #
+# | |_) || (_| || |_ | |_ | ||  __/  ____) || (_| || |_| || (_| || |  |  __/\__ \ #
+# |____/  \__,_| \__| \__||_| \___| |_____/  \__, | \__,_| \__,_||_|   \___||___/ #
+#                                               | |                               #
+#                                               |_|                               #
+###################################################################################
 
 import pygame
 
@@ -12,7 +17,7 @@ import enginey.engine.utility as utl
 import enginey.engine.ui as ui
 import enginey.engine.enviro as ev
 
-STARTING_LEVEL = 8
+STARTING_LEVEL = 1
 
 pygame.init()
 
@@ -68,7 +73,7 @@ map.insert_child(player)
 # credits
 credits = ui.make_hud((0,0))
 credits.active = False
-credits_game_title = ui.make_draw_credits((60,50), "Battle Squares.tm")
+credits_game_title = ui.make_draw_credits((60,50), "Battle Squares")
 credits_title = ui.make_draw_credits((60,250), "Credits")
 credits_name_1 = ui.make_draw_credits((60,310), "Engine Designer: Gage Rindt")
 credits_name_2 = ui.make_draw_credits((60,370), "Level Designer: Nicholas Rengier")

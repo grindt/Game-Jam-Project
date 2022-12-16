@@ -55,7 +55,6 @@ class Move():
         elif adj_tile == "b":
             #boss
             damage = -10
-            print(self.entity_state.entity_state.numEnemiesAlive)
             if int(self.entity_state.entity_state.numEnemiesAlive) <= 0:
                 self.entity_state.health = int(self.entity_state.health) + damage
                 self.entity_state.entity_state.bossAlive = False
