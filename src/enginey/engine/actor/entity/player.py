@@ -23,3 +23,11 @@ class Player():
         self.children.append(c) 
         return c
 
+
+    def playSound(self):
+        from pygame import mixer
+        mixer.init()
+        mixer.music.load(self.file)
+        mixer.music.set_volume(self.volume)
+        mixer.music.play()
+

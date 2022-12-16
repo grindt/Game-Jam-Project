@@ -33,6 +33,18 @@ game_content = [ viewer ]
 ################## game setup ###########################################
 
 # map setup
+
+# Map entity
+# -> 2d array map
+# -> boss isAlive boolean
+# -> enemies alive number
+# -> level loader
+# -> player entity
+# ----> location
+# ----> health
+# ----> hud entity
+# ------> health bar
+
 map = ev.make_map()
 mapRenderer = ev.make_render_map(40, 22, 1, 32) # screenWidth, screenHeight, offset, tileSize
 map.insert_action(mapRenderer)

@@ -29,16 +29,21 @@ class Move():
         adj_tile = ''
         # coords are y,x
         adj_coord = (0,0)
+        # get correct offset for adj tile based on button pressed
         if key == pygame.K_w:
+            # w key (y-1, x)
             adj_coord = (playerCoords[0] - 1, playerCoords[1])
             adj_tile = map.map[playerCoords[0] - 1][playerCoords[1]]
         elif key == pygame.K_a:
+            # a key (y, x-1)
             adj_coord = (playerCoords[0], playerCoords[1] - 1)
             adj_tile = map.map[playerCoords[0]][playerCoords[1] - 1]
         elif key == pygame.K_s:
+            # a key (y+1, x)
             adj_coord = (playerCoords[0] + 1, playerCoords[1])
             adj_tile = map.map[playerCoords[0] + 1][playerCoords[1]]
         elif key == pygame.K_d:
+            # d key (y, x+1)
             adj_coord = (playerCoords[0], playerCoords[1] + 1)
             adj_tile = map.map[playerCoords[0]][playerCoords[1] + 1]
         else:
@@ -63,11 +68,12 @@ class Move():
         elif adj_tile == "h":
             #health
             damage = 15
-            # make sure health can't go above max health
+            # health can go over max health
             self.entity_state.health = int(self.entity_state.health) + damage
             self.makeMove(adj_coord)
         elif adj_tile == "d":
             #door
+            #validate all enemies and bosses have been eleminated
             if self.entity_state.entity_state.bossAlive == False and int(self.entity_state.entity_state.numEnemiesAlive) <= 0:
                 self.entity_state.entity_state.children[0].level += 1
                 self.entity_state.entity_state.activitas[0].act()
@@ -84,17 +90,9 @@ class Move():
         return
 
     def makeMove(self, adj_coord):
-        self.playSound()
+        #updates all stored positions and p char in the 2d map array
+        self.entity_state.playSound()
         self.entity_state.entity_state.map[adj_coord[0]][adj_coord[1]] = "p"
         self.entity_state.entity_state.map[self.entity_state.location[0]][self.entity_state.location[1]] = "f"
         self.entity_state.location = adj_coord
-        return
-
-    def playSound(self):
-        from pygame import mixer
-        mixer.init()
-        mixer.music.load(self.entity_state.file)
-        mixer.music.set_volume(self.entity_state.volume)
-        mixer.music.play()
-
         return

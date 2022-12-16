@@ -29,6 +29,7 @@ class RenderMap():
         # assumes the whole stage is void color already
         for row in range(0, self.SCREENHEIGHT):
             for col in range(0, self.SCREENWIDTH):
+                #draws rectangles in correct locations with correct offset for its position
                 pygame.draw.rect(screen, self.getColor(row, col), [(col * 32 + self.offset), (row * 32 + self.offset), self.tile_dimensions[0], self.tile_dimensions[1]])
         return
 

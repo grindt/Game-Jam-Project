@@ -32,21 +32,28 @@ class LevelLoadAction():
         self.entity_state.active = False
 
     def parseFile(self, map, level):
+        # catch for if a level cant be loaded
         try:
             file = open("./levels/" + str(level),"r")
         except:
             file = open("./levels/end","r")
+
+        #start file parse
         rowNum = 0
+        #go row by row and col by col
         for line in file:
             if len(line) < 4:
                 map.children[1].health = line
                 map.children[1].maxHealth = line
                 break
+            #appends new array to 2d array in map
             map.map.append([])
             colNum = 0
             for char in line:
+                #ignores any white space
                 if char != ' ':
                     map.map[rowNum].append(char)
+                    #changes map data for specific entities
                     if char == 'p':
                         map.children[1].location = (rowNum, colNum)
                     if char == 'e':
@@ -59,5 +66,7 @@ class LevelLoadAction():
                         map.activitas[1].active = True
                     colNum += 1
             rowNum += 1
+
+        #close file for safety
         file.close()
         return
