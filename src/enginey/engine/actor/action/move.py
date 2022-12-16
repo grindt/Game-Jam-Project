@@ -57,7 +57,7 @@ class Move():
             damage = -10
             if int(self.entity_state.entity_state.numEnemiesAlive) <= 0:
                 self.entity_state.health = int(self.entity_state.health) + damage
-                self.entity_state.entity_state.bossAlive = False
+                self.entity_state.entity_state.bossAlive -= 1
                 self.makeMove(adj_coord)
             pass
         elif adj_tile == "h":

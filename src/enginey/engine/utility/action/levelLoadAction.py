@@ -52,7 +52,7 @@ class LevelLoadAction():
                     if char == 'e':
                         map.numEnemiesAlive += 1
                     if char == 'b':
-                        map.bossAlive = True
+                        map.bossAlive += 1
                     if char == 'L':
                         map.children[1].children[0].active = False
                         map.active = False

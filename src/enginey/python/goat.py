@@ -17,7 +17,7 @@ import enginey.engine.utility as utl
 import enginey.engine.ui as ui
 import enginey.engine.enviro as ev
 
-STARTING_LEVEL = 1
+STARTING_LEVEL = 24
 
 pygame.init()
 

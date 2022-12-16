@@ -13,7 +13,7 @@ class Map():
         self.actions = []
         self.name = name
         self.map = []
-        self.bossAlive = False
+        self.bossAlive = 0
         self.numEnemiesAlive = 0
         self.template = None
         self.verbose = False
