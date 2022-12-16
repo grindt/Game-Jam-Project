@@ -84,7 +84,17 @@ class Move():
         return
 
     def makeMove(self, adj_coord):
+        self.playSound()
         self.entity_state.entity_state.map[adj_coord[0]][adj_coord[1]] = "p"
         self.entity_state.entity_state.map[self.entity_state.location[0]][self.entity_state.location[1]] = "f"
         self.entity_state.location = adj_coord
+        return
+
+    def playSound(self):
+        from pygame import mixer
+        mixer.init()
+        mixer.music.load(self.entity_state.file)
+        mixer.music.set_volume(self.entity_state.volume)
+        mixer.music.play()
+
         return

@@ -5,6 +5,8 @@ class Player():
         self.health = health
         self.maxHealth = health
         self.name = name
+        self.volume = 0.5
+        self.file = "../assets/sounds/move_sound.mp3"
         self.template = None
         self.verbose = False
         self.active = True
