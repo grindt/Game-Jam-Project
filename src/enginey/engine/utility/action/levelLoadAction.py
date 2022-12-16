@@ -1,6 +1,6 @@
 class LevelLoadAction():
     def __init__(self):
-        self.types = None
+        self.types = ["event"]
         self.entity_state = None
         self.verbose = False
         self.name = "load"
@@ -14,6 +14,7 @@ class LevelLoadAction():
         return True
 
     def act(self):
+        print(self.condition_to_act())
         if self.condition_to_act():
             self.makeLevel()
         if self.verbose:
@@ -32,7 +33,7 @@ class LevelLoadAction():
         # ----> hud entity
         # ------> health bar
 
-        #accessing the map
+        # accessing the map
         self.entity_state.entity_state.map = []
 
         self.parseFile(self.entity_state.entity_state, self.entity_state.level)
@@ -41,16 +42,25 @@ class LevelLoadAction():
 
     def parseFile(self, map, level):
         file = open("./levels/" + str(level),"r")
-        lineNum = 0
+        rowNum = 0
         for line in file:
-            if len(line) < 2:
+            if len(line) < 4:
                 map.children[1].health = line
                 map.children[1].maxHealth = line
                 break
             map.map.append([])
+            colNum = 0
             for char in line:
                 if char != ' ':
-                    map.map[lineNum].append(char)
-            lineNum += 1
+                    map.map[rowNum].append(char)
+                    if char == 'p':
+                        map.children[1].location = (rowNum, colNum)
+                        print(map.children[1].location)
+                    if char == 'e':
+                        map.numEnemiesAlive += 1
+                    if char == 'b':
+                        map.bossAlive = True
+                    colNum += 1
+            rowNum += 1
         file.close()
         return

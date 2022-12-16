@@ -13,12 +13,13 @@ class Map():
         self.actions = []
         self.name = name
         self.map = []
-        self.bossAlive = True
-        self.numEnemiesAlive = 99
+        self.bossAlive = False
+        self.numEnemiesAlive = 0
         self.template = None
         self.verbose = False
         self.active = True
         self.children = []
+        self.activitas = []
 
     def insert_action(self, a):
         a.entity_state = self
@@ -29,3 +30,7 @@ class Map():
         c.entity_state = self
         self.children.append(c) 
         return c
+
+    def insert_activitas(self, a):
+        self.activitas.append(a) 
+        return a

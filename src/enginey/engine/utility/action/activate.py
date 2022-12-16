@@ -1,11 +1,9 @@
-import pygame
-
 class Activate():
     def __init__(self):
-        self.types = ["event"]
+        self.types = ["activate"]
         self.entity_state = None
         self.verbose = False
-        self.name = "activate_timer"
+        self.name = "activate"
         return
 
     def condition_to_act(self):
