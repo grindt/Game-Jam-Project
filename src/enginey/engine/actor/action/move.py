@@ -45,7 +45,6 @@ class Move():
             print("Error!!!")
             return
 
-        print(adj_tile)
         damage = 0
         if adj_tile == "e":
             #enemy
@@ -56,6 +55,7 @@ class Move():
         elif adj_tile == "b":
             #boss
             damage = -10
+            print(self.entity_state.entity_state.numEnemiesAlive)
             if int(self.entity_state.entity_state.numEnemiesAlive) <= 0:
                 self.entity_state.health = int(self.entity_state.health) + damage
                 self.entity_state.entity_state.bossAlive = False
@@ -65,10 +65,7 @@ class Move():
             #health
             damage = 15
             # make sure health can't go above max health
-            if int(self.entity_state.health) + damage > int(self.entity_state.maxHealth):
-                self.entity_state.health = self.entity_state.maxHealth
-            else:
-                self.entity_state.health = int(self.entity_state.health) + damage
+            self.entity_state.health = int(self.entity_state.health) + damage
             self.makeMove(adj_coord)
         elif adj_tile == "d":
             #door
@@ -82,7 +79,7 @@ class Move():
             self.makeMove(adj_coord)
 
         # check for death
-        if int(self.entity_state.health) < 0:
+        if int(self.entity_state.health) <= 0:
             self.entity_state.entity_state.activitas[0].act()
 
         return

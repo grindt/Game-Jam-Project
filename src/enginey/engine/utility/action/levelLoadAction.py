@@ -24,6 +24,9 @@ class LevelLoadAction():
     def makeLevel(self):
         # reseting the map
         self.entity_state.entity_state.map = []
+        self.entity_state.entity_state.bossAlive = False
+        self.entity_state.entity_state.numEnemiesAlive = 0
+
 
         self.parseFile(self.entity_state.entity_state, self.entity_state.level)
 
